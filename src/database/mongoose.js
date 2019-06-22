@@ -30,8 +30,9 @@ const User=  mongoose.model('User',{
     }
 })
 
-/* const newUser = new User({
-    name:'abdou',
+const newUser = new User({
+    name:'yahya',
+    email:'yahya@hotmail.com',
     age:26
 })
 
@@ -40,7 +41,7 @@ newUser.save().then((result)=>{
 
 }).catch((error)=>{
     console.log("Faild! ")
-}) */
+})
 
 const Tasks = mongoose.model('Tasks',{
     task:{
