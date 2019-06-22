@@ -14,23 +14,5 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
     
     const db = client.db(databaseName)
     
-    db.collection('users').insertMany([
-        {
-            name:'yahya',
-            age:13
-        },
-        {
-            name:'heithem',
-            age:22
-        },
-        {
-            name:'walid',
-            age:21
-        }
-    ]).then((result)=>{
-        console.log(result)
-    }).catch((error)=>{
-        console.log(error)
-    })
     
 })
