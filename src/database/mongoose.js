@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const validator = require('validator')
 
 mongoose.connect('mongodb://127.0.0.1:27017/task-db',{
     useNewUrlParser:true,
@@ -7,10 +8,25 @@ mongoose.connect('mongodb://127.0.0.1:27017/task-db',{
 
 const User=  mongoose.model('User',{
     name:{
-        type:String
+        type:String,
+        required:true,
+    },
+    email:{
+        type:String,
+        required:true,
+        validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error('invalid email ') 
+            }
+        }
     },
     age:{
-        type:Number
+        type:Number,
+        validate(value){
+            if(value<0){
+                throw new Error('age must be positive value')
+            }
+        }
     }
 })
 
@@ -35,7 +51,7 @@ const Tasks = mongoose.model('Tasks',{
     }
 })
 
-const newTask = new Tasks({
+/* const newTask = new Tasks({
     name:"add credit dard to the project",
     status:false
 })
@@ -44,5 +60,5 @@ newTask.save().then((result)=>{
     console.log('Succes',result)
 }).catch((error)=>{
     console.log('Faild!',error.value)
-})
+}) */
 
