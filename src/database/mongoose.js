@@ -61,10 +61,13 @@ newUser.save().then((result)=>{
 
 const Tasks = mongoose.model('Tasks',{
     task:{
-        type:String
+        type:String,
+        required:true,
+        trim:true,
     },
     status:{
-        type:Boolean
+        type:Boolean,
+        default:false,
     }
 })
 
