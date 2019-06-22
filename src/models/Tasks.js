@@ -8,6 +8,7 @@ const Tasks = mongoose.model('Tasks',{
     },
     status:{
         type:Boolean,
+        required:true,
         default:false,
     }
 })
